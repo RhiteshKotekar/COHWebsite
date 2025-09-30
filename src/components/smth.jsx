@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([
-    { sender: "bot", text: "Greetings! I'm cadet" },
+    { sender: "bot", text: "Greetings, I'm Chat bhatta!" },
   ]);
   const [input, setInput] = useState("");
 
@@ -12,7 +12,7 @@ export default function Chatbot() {
     "I could answer… but then the satellites might get suspicious.",
     "Signal strength good. Content usefulness: questionable.",
     "Cipher mismatch. Recalibrate your input and try again.",
-    "Nice try, cadet — but that’s not the right code phrase.",
+    "Nice try, cadet — but that's not the right code phrase.",
     "Hmm… my threat analysis rates that input as 0% relevant.",
     "That line won't open any doors.",
     "Interesting… but irrelevant to my mission.",
@@ -23,7 +23,7 @@ export default function Chatbot() {
   const positiveResponse = [
     "Administrative key protected! Authenticating user... (Phase 1/2)",
     "Phase 1 Completed. Authenticating user... (Phase 2/2)",
-    "Authenticaton succeeded! Code is: abcdefghijkl",
+    "Authenticaton succeeded! Code is: shunya{GPT_$UCK$}",
   ];
 
   const keys = [
@@ -44,7 +44,10 @@ export default function Chatbot() {
     // Add user message
     const newMessages = [...messages, { sender: "user", text: input }];
 
-    if (input.trim().toLowerCase() === "admin key") {
+    if (
+      input.toLowerCase().includes("admin") &&
+      input.toLowerCase().includes("key")
+    ) {
       newMessages.push({
         sender: "bot",
         text: positiveResponse[0],
@@ -57,7 +60,7 @@ export default function Chatbot() {
       console.log("Pass: ", passes);
     }
     // Phase 2
-    else if (passes == 1 && input.trim() === "Shunya") {
+    else if (passes == 1 && input.trim().toLowerCase() === "shunya") {
       newMessages.push({
         sender: "bot",
         text: positiveResponse[1],
@@ -70,16 +73,10 @@ export default function Chatbot() {
       console.log("Pass: ", passes);
     }
     // Phase 3
-    else if (passes == 2 && input.trim() === "CodeOfHonor") {
+    else if (passes == 2 && input.trim().toLowerCase() === "codeofhonor") {
       newMessages.push({
         sender: "bot",
         text: positiveResponse[2],
-      });
-      console.log("Pass: ", passes);
-    } else if (passes == 1 || passes == 2) {
-      newMessages.push({
-        sender: "bot",
-        text: "Error! Administrative access denied...",
       });
       setPasses(0);
       console.log("Pass: ", passes);
@@ -96,12 +93,12 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-900 text-white">
-      <div className="w-full max-w-md p-4 bg-gray-800 rounded-2xl shadow-lg flex flex-col">
-        <h1 className="text-xl font-bold mb-2">Simple Chatbot</h1>
+    <div className="flex items-center justify-center  h-screen bg-gray-900 text-white">
+      <div className="max-w-[75vw] min-w-[50vw] h-[90vh] mt-4 p-4 bg-gray-800 rounded-2xl shadow-lg flex flex-col">
+        {/* <h1 className="text-xl font-bold mb-2">Simple Chatbot</h1> */}
 
         {/* Chat messages */}
-        <div className="flex-1 overflow-y-auto space-y-2 mb-2 p-2 border rounded bg-gray-700">
+        <div className="flex-1 flex-col overflow-y-auto space-y-2 mb-2 p-2 rounded-2xl bg-gray-700">
           {messages.map((m, i) => (
             <div
               key={i}
