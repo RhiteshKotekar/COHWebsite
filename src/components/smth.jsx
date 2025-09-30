@@ -27,8 +27,8 @@ export default function Chatbot() {
   ];
 
   const keys = [
-    `D'\`$^"8nmZY3zVTwSQtb*ML'&\\7#F'gVC0S.->v<)\\[wvonm3TSihmf,MLbafedc\\"\`Y^W{UZSRWPtNSLp]`,
-    "᚛ᚄᚆᚒᚅᚍᚐ᚜",
+    `D'\`\`M9"JI;X9WDUS.d,>O/L'9m*GY4&ge#Ab-,|<)Lrqp6WVlqpih.fkjihgfed]#DZYX|{[ZYX:PtTS54Jn10LKJIHAe?DCB;:^K`,
+    "᚛ᚄᚉᚑᚈᚈᚍ ᚜",
   ];
 
   // Pass checker
@@ -60,7 +60,7 @@ export default function Chatbot() {
       console.log("Pass: ", passes);
     }
     // Phase 2
-    else if (passes == 1 && input.trim().toLowerCase() === "shunya") {
+    else if (passes == 1 && input.trim().toLowerCase() === "beammeup") {
       newMessages.push({
         sender: "bot",
         text: positiveResponse[1],
@@ -73,7 +73,7 @@ export default function Chatbot() {
       console.log("Pass: ", passes);
     }
     // Phase 3
-    else if (passes == 2 && input.trim().toLowerCase() === "codeofhonor") {
+    else if (passes == 2 && input.trim().toLowerCase() === "scotty") {
       newMessages.push({
         sender: "bot",
         text: positiveResponse[2],
